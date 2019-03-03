@@ -1,0 +1,17 @@
+hw_df <- read.xls("http://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/mlr/excel/mlr01.xls")
+str(hw_df)
+summary(hw_df)
+colnames(hw_df) <- c("FAWNS", "ANTELOPES", "PRECIPITATION", "WINTER")
+head(hw_df)
+attach(hw_df)
+plot(FAWNS ~ ANTELOPES, xlab = "FAWNS", ylab = "ANTELOPES")
+plot(SPRING_FAWNS ~ PRECIPITATION, xlab = "FAWNS", ylab = "PRECIPITATION")
+plot(SPRING_FAWNS ~ WINTER, xlab = "FAWNS", ylab = "WINTER")
+hw_df$WINTER
+hw_df$FAWNS
+model_one <- lm(FAWNS ~ WINTER)
+summary(model_one)
+model_two <- lm(FAWNS ~ WINTER + PRECIPITATION)
+summary(model_two)
+model_three <- lm(FAWNS ~ WINTER + PRECIPITATION + ANTELOPES)
+summary(model_three)
